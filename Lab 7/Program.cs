@@ -37,6 +37,19 @@ namespace Lab_7
             globalAccount += 10;
         }
 
+        public void pullAccount(int sum)
+        {
+            if (this.balance > sum)
+                this.balance -= sum;
+            else
+                Console.WriteLine("Недостаточно средств");
+        }
+
+        public void pushAccount(int sum)
+        {
+            this.balance += sum;
+        }
+
     }
 
 
@@ -54,6 +67,20 @@ namespace Lab_7
             Console.WriteLine(bankAccount1.Account);
             BankAccount bankAccount2 = new BankAccount();
             Console.WriteLine(bankAccount2.Account);
+
+
+            bankAccount.Balance = 1000;
+            bankAccount.pullAccount(2000);
+            bankAccount.pullAccount(500);
+
+            Console.WriteLine(bankAccount.Balance);
+
+            bankAccount.pushAccount(2000);
+
+            Console.WriteLine(bankAccount.Balance); 
+
+         
+
 
             Console.ReadKey(); 
 
