@@ -18,12 +18,24 @@ namespace Lab_7
     class BankAccount
     {
         private int account;
+        static private int globalAccount = 1000;
         private int balance;
         private AccountType type;
 
-        public int Account { get => account; set => account = value; }
+        public int Account { get => account;}
         public int Balance { get => balance; set => balance = value; }
         public AccountType Type { get => type; set => type = value; }
+
+        public BankAccount()
+        {
+            account = globalAccount;
+            incGlobalAccount(); 
+        }
+
+        private void incGlobalAccount()
+        {
+            globalAccount += 10;
+        }
 
     }
 
@@ -37,9 +49,11 @@ namespace Lab_7
         {
 
             BankAccount bankAccount = new BankAccount();
-            bankAccount.Account = 1;
-            bankAccount.Balance = 0;
-            bankAccount.Type = AccountType.Debet;
+            Console.WriteLine(bankAccount.Account);
+            BankAccount bankAccount1 = new BankAccount();
+            Console.WriteLine(bankAccount1.Account);
+            BankAccount bankAccount2 = new BankAccount();
+            Console.WriteLine(bankAccount2.Account);
 
             Console.ReadKey(); 
 
